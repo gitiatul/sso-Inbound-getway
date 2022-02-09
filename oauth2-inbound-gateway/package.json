@@ -1,0 +1,65 @@
+{
+  "name": "kpi-sso-smart-inbound-gateway",
+  "version": "4.0.0",
+  "description": "KPI SSO SMART Inbound Gateway",
+  "main": "handler.js",
+  "private": true,
+  "scripts": {
+    "dev": "sls offline start",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint ./src",
+    "lint:fix": "eslint ./src --fix",
+    "migrate": "npm run migrate:down && npm run migrate:up && npm run migrate:seed",
+    "migrate:up": "sequelize db:migrate",
+    "migrate:seed": "sequelize db:seed:all",
+    "migrate:down": "sequelize db:migrate:undo:all"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://bitbucket.org/kpininjarepo/kpi-sso-inbound-gateway.git"
+  },
+  "author": {
+    "name": "KPI Ninja",
+    "email": "info@kpininja.com",
+    "url": "https://kpininja.com"
+  },
+  "keywords": [
+    "serverless",
+    "aws-lambda",
+    "lambda",
+    "serverless-framework",
+    "serverless-architectures",
+    "OAuth2",
+    "SMART-on-FHIR"
+  ],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://bitbucket.org/kpininjarepo/kpi-sso-inbound-gateway/jira"
+  },
+  "homepage": "https://bitbucket.org/kpininjarepo/kpi-sso-inbound-gateway#readme",
+  "dependencies": {
+    "axios": "^0.21.4",
+    "dotenv": "^10.0.0",
+    "ejs": "^3.1.6",
+    "jwt-decode": "^3.1.2",
+    "moment": "^2.29.1",
+    "mysql2": "^2.2.5",
+    "sequelize": "^6.6.2",
+    "uuid": "^8.3.2",
+    "xmlbuilder2": "^2.4.1"
+  },
+  "devDependencies": {
+    "eslint": "^7.28.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-node": "^4.1.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "husky": "^6.0.0",
+    "prettier": "^2.3.1",
+    "pretty-quick": "^3.1.0",
+    "sequelize-cli": "^6.3.0",
+    "serverless-offline": "^7.0.0"
+  }
+}

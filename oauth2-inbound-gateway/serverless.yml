@@ -1,0 +1,43 @@
+service: kpi-sso-smart-inbound-gateway
+
+frameworkVersion: "2"
+
+useDotenv: true
+
+custom:
+    serverless-offline:
+        host: localhost
+        httpPort: 5005
+        # httpsProtocol: "ssl"
+
+provider:
+    name: aws
+    runtime: nodejs14.x
+    stage: ${env:STAGE, 'dev'}
+    region: ap-south-1
+    lambdaHashingVersion: 20201221
+
+functions:
+    indexRoute:
+        handler: ./handler.index
+        events:
+            - http:
+                  path: /
+                  method: get
+                  cors: true
+    launchRoute:
+        handler: ./handler.launch
+        events:
+            - http:
+                  path: /launch
+                  method: get
+                  cors: true
+    callbackRoute:
+        handler: ./handler.callback
+        events:
+            - http:
+                  path: /callback
+                  method: get
+                  cors: true
+plugins:
+    - serverless-offline # adding the plugin to be able to run the offline emulation

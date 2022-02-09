@@ -1,0 +1,70 @@
+{
+    "name": "kpi-sso-saml2-inbound-gateway",
+    "version": "5.0.0",
+    "description": "KPI SSO SAML2 Inbound Gateway",
+    "main": "./src/server.js",
+    "private": true,
+    "scripts": {
+        "start": "node ./src/server.js",
+        "dev": "nodemon -r dotenv/config ./src/server-dev.js",
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "lint": "eslint ./src",
+        "lint:fix": "eslint ./src --fix",
+        "migrate": "npm run migrate:down && npm run migrate:up && npm run migrate:seed",
+        "migrate:up": "sequelize db:migrate",
+        "migrate:seed": "sequelize db:seed:all",
+        "migrate:down": "sequelize db:migrate:undo:all"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://bitbucket.org/kpininjarepo/kpi-sso-inbound-gateway.git"
+    },
+    "author": {
+        "name": "KPI Ninja",
+        "email": "info@kpininja.com",
+        "url": "https://kpininja.com"
+    },
+    "keywords": [
+        "saml",
+        "KPI Ninja"
+    ],
+    "license": "ISC",
+    "bugs": {
+        "url": "https://bitbucket.org/kpininjarepo/kpi-sso-inbound-gateway/jira"
+    },
+    "homepage": "https://bitbucket.org/kpininjarepo/kpi-sso-inbound-gateway#readme",
+    "dependencies": {
+        "aws-sdk": "^2.1046.0",
+        "axios": "^0.24.0",
+        "cors": "^2.8.5",
+        "dotenv": "^10.0.0",
+        "ejs": "^3.1.6",
+        "express": "^4.17.1",
+        "express-mysql-session": "^2.1.7",
+        "express-session": "^1.17.2",
+        "helmet": "^4.6.0",
+        "joi": "^17.5.0",
+        "moment": "^2.29.1",
+        "morgan": "^1.10.0",
+        "mysql2": "^2.3.3",
+        "passport": "^0.5.0",
+        "passport-saml": "^3.2.0",
+        "rotating-file-stream": "^3.0.2",
+        "sequelize": "^6.12.0-alpha.1",
+        "sequelize-cli": "^6.3.0",
+        "uuid": "^8.3.2"
+    },
+    "devDependencies": {
+        "eslint": "^8.3.0",
+        "eslint-config-airbnb-base": "^15.0.0",
+        "eslint-config-node": "^4.1.0",
+        "eslint-config-prettier": "^8.3.0",
+        "eslint-plugin-import": "^2.25.3",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-prettier": "^4.0.0",
+        "husky": "^7.0.4",
+        "nodemon": "^2.0.15",
+        "prettier": "^2.4.1",
+        "pretty-quick": "^3.1.2"
+    }
+}
